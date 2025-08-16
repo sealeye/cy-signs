@@ -8,17 +8,23 @@ h1{font-size:20px;font-weight:700;margin:0;color:#c7d2e1}
 .card{background:#0f131a;border:1px solid #20283a;border-radius:16px;padding:16px;box-shadow:0 8px 30px rgba(0,0,0,.28)}
 .imgwrap {
     max-height: 32vh;
-    display: grid;
-    place-items: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     aspect-ratio: 1/1;
     background: #0a0d12;
     border-radius: 12px;
     border: 1px dashed #293145;
     margin-bottom: 12px;
-    padding: 12px;
+    padding: 22px;
     margin-inline: auto;
 }
-.imgwrap img{max-width:100%;max-height:32vh;filter:drop-shadow(0 8px 20px rgba(0,0,0,.25))}
+.imgwrap img {
+    max-height: 100%;
+    display: block;
+    max-width: 100%;
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, .25))
+}
 form{display:flex;gap:8px; margin-bottom: 20px;}
 input#answer{flex:1;padding:12px 14px;border-radius:10px;border:1px solid #2a3345;background:#0b0f16;color:#e7ebf0;font-size:16px}
 button[type=submit]{background:#2a3345;color:#e7ebf0;border:0;border-radius:10px;padding:10px 14px;cursor:pointer}
@@ -30,12 +36,16 @@ button[type=submit]:hover{background:#36425a}
 #meta{opacity:.8;font-size:12px;margin-top:4px}
 footer{display:flex;align-items:center;justify-content:space-between;margin-top:12px}
 .stats{display:flex;gap:14px;font-size:14px;opacity:.9}
-.hint{opacity:.6;font-size:12px}
-@media (max-width:560px){.imgwrap img{max-height:44vh}}
+.hint{opacity:.6;font-size:12px; margin-left: 12px;}
 
 .reviewbar {
     display: flex;
     flex-direction: column;
     gap: 4px;
     margin-block: 4px
+}
+
+.pill {
+    display: block;
+    color: red;
 }
