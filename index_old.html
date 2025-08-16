@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>cyprus road signs trainer</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .reviewbar{display:none;margin-top:10px;padding:8px;border:1px dashed #293145;border-radius:10px;background:#0b0f16}
+    .reviewbar.active{display:block}
+    .review-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+    .pill{padding:6px 8px;border:1px solid #2a3345;border-radius:999px;cursor:pointer;font-size:12px}
+    .pill:hover{background:#1c2330}
+    .unknownbar{display:none;margin-top:10px;padding:8px;border:1px dashed #293145;border-radius:10px;background:#0b0f16}
+    .unknownbar.active{display:block}
+    .hints{margin-top:8px;opacity:.95;font-size:13px}
+    .hints b{opacity:.9}
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>cyprus road signs — mobile‑friendly drill (inline)</h1>
+      <div class="controls">
+        <button id="prevBtn" title="previous (←)">← prev</button>
+        <button id="nextBtn" title="next (→)">next →</button>
+        <button id="revealBtn" title="show answer (↑)">reveal</button>
+        <button id="markUnknownBtn" title="mark as unknown (no answer)">mark unknown</button>
+        <button id="reviewBtn" title="review mistakes (double ↓)">review mistakes</button>
+        <button id="unknownBtn" title="review unknowns">review unknowns</button>
+        <button id="exportBtn" title="download mistakes json">export mistakes</button>
+        <button id="hintBtn" title="show hint">hints</button>
+      </div>
+    </header>
+
+    <section class="card">
+      <div class="imgwrap">
+        <img id="signImg" alt="road sign">
+      </div>
+
+      <form id="answerForm" autocomplete="off">
+        <input id="answer" type="text" placeholder="type the sign name in english…" autofocus inputmode="text">
+        <button type="submit">check</button>
+      </form>
+
+      <div id="feedback" aria-live="polite"></div>
+      <div id="meta"></div>
+      <div id="hints" class="hints" style="display:none"></div>
+    </section>
+
+    <footer>
+      <div class="stats">
+        <span>✓ <b id="correct">0</b></span>
+        <span>~ <b id="almost">0</b></span>
+        <span>✕ <b id="wrong">0</b></span>
+      </div>
+      <div class="hint">enter — check · ←/→ — prev/next · ↑ — reveal · ↓ — toggle mistakes · кнопки: review/unknowns/hints</div>
+    </footer>
+
+    <section id="reviewBar" class="reviewbar">
+      <div><b>mistakes to review:</b> <span id="reviewCount">0</span></div>
+      <div id="reviewList" class="review-list"></div>
+    </section>
+
+    <section id="unknownBar" class="unknownbar">
+      <div><b>unknowns (skipped/revealed):</b> <span id="unknownCount">0</span></div>
+      <div id="unknownList" class="review-list"></div>
+    </section>
+
+    <script>const DATA = [{"image": "images/Traffic_signals_ahead.svg", "name": "Traffic signals ahead"}, {"image": "images/No_bicycles.svg", "name": "No bicycles"}, {"image": "images/STOP.svg", "name": "STOP"}];</script>
+    <script>
+      const RU_HINTS = {"stop": {"ru": "стоп / обязательная остановка", "memo": "восемьугольник = всегда стоп. форма уникальна → мозг цепляет."}, "traffic signals ahead": {"ru": "светофор впереди", "memo": "красно-бело-красный треугольник = предупреждение. видишь светофор — сбрось скорость."}, "no bicycles": {"ru": "велосипедам въезд запрещён", "memo": "красный круг = запрет. зачёркнутый велик — без вариантов."}};
+    </script>
+    <script src="app.js"></script>
+  </main>
+</body>
+</html>
